@@ -1,59 +1,23 @@
 # ERP Invoice Payment Mock Desktop App
 
-A simple desktop app for mocking invoice payments for:
+A simple desktop app for mocking invoice payments in:
 
 - **Accounts Payable (AP)**
 - **Accounts Receivable (AR)**
 
-The app uses Python's built-in `tkinter` UI toolkit.
+The app uses Python's built-in `tkinter` UI toolkit, so no third-party dependencies are required.
 
 ## Features
 
-- Separate AP and AR tabs.
-- Capture vendor/customer, invoice amount, payment method, and status.
-- Live totals for processed AP and AR entries.
-- Central timestamped transaction log.
+- Separate AP and AR mock entry tabs.
+- Capture vendor/customer, amount, payment method, and mock status.
+- Live totals for:
+  - AP Paid (processed only)
+  - AR Received (processed only)
+- Central transaction log with timestamped entries.
 
-## Run from source
+## Run
 
 ```bash
 python3 app.py
 ```
-
-## Build a Windows `.exe`
-
-### Option A: one-command PowerShell build (recommended)
-
-On a Windows machine with Python installed:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\build_windows_exe.ps1
-```
-
-Output:
-
-- `dist\ERPInvoiceMock.exe`
-
-### Option B: manual build with PyInstaller
-
-```powershell
-python -m pip install --upgrade pip
-python -m pip install -r requirements-build.txt
-pyinstaller --noconfirm --clean --windowed --onefile --name ERPInvoiceMock app.py
-```
-
-Output:
-
-- `dist\ERPInvoiceMock.exe`
-
-## Create an installer (`.exe` setup wizard)
-
-If you want an installable setup executable:
-
-1. Install **Inno Setup** on Windows.
-2. Build the app first so `dist\ERPInvoiceMock.exe` exists.
-3. Open `installer.iss` in Inno Setup and click **Build**.
-
-Output:
-
-- `dist\ERPInvoiceMockInstaller.exe`
