@@ -1,23 +1,43 @@
-# ERP Invoice Payment Mock Desktop App
+# PeopleSoft AR/AP Module Mock (Desktop)
 
-A simple desktop app for mocking invoice payments in:
+This desktop app simulates core **PeopleSoft FSCM Accounts Receivable and Accounts Payable** flows for demos and training.
 
-- **Accounts Payable (AP)**
-- **Accounts Receivable (AR)**
+## Included module simulations
 
-The app uses Python's built-in `tkinter` UI toolkit, so no third-party dependencies are required.
+### AR WorkCenter
+- AR Item Entry (BU, customer, entry type, due days, amount)
+- AR Payment Worksheet (post/pending/error payment outcomes)
+- AR open-item list and real-time status transitions (`OPEN`, `PARTIALLY_PAID`, `CLOSED`)
 
-## Features
+### AP WorkCenter
+- AP Voucher Entry (BU, vendor, origin, due days, amount)
+- AP Payment Manager (post/pending/error payment outcomes)
+- AP voucher list and real-time status transitions (`OPEN`, `PARTIALLY_PAID`, `CLOSED`)
 
-- Separate AP and AR mock entry tabs.
-- Capture vendor/customer, amount, payment method, and mock status.
-- Live totals for:
-  - AP Paid (processed only)
-  - AR Received (processed only)
-- Central transaction log with timestamped entries.
+### Control & Posting
+- AR aging snapshot simulation
+- AP pay cycle simulation
+- AR/AP reconciliation snapshot with process monitor log
 
-## Run
+## Quick start
 
 ```bash
 python3 app.py
 ```
+
+## Build Windows `.exe`
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\build_windows_exe.ps1
+```
+
+Output:
+- `dist\ERPInvoiceMock.exe`
+
+## Optional installer (`.exe` setup wizard)
+1. Build `dist\ERPInvoiceMock.exe` first.
+2. Open `installer.iss` in Inno Setup.
+3. Click **Build**.
+
+Output:
+- `dist\ERPInvoiceMockInstaller.exe`
